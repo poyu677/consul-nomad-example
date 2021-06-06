@@ -1,0 +1,17 @@
+- hosts: all
+  roles:
+    - ansible-consul
+  become: yes
+
+- hosts: nomad_instances
+  roles:
+    - ansible-nomad
+  become: yes
+
+- hosts: nomad_clients
+  tasks:
+    - name: Install docker
+      apt:
+        name: docker.io
+        update_cache: yes
+      become: yes

@@ -1,0 +1,5 @@
+---
+
+consul_bootstrap_expect: true
+consul_node_role: server
+

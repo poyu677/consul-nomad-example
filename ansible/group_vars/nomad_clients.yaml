@@ -1,0 +1,4 @@
+---
+
+nomad_docker_enable: true
+nomad_consul_clients_service_name: nomad-worker

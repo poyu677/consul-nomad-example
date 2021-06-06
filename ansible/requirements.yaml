@@ -1,0 +1,10 @@
+---
+roles:
+  - src: https://github.com/ansible-community/ansible-consul.git
+    name: ansible-consul
+    scm: git
+    version: v2.5.4
+  - src: https://github.com/ansible-community/ansible-nomad
+    name: ansible-nomad
+    scm: git
+    version: v1.9.5

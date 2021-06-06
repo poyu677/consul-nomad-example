@@ -1,0 +1,29 @@
+[all:vars]
+ansible_user=azureuser
+jump_host=127.0.0.1
+ansible_ssh_private_key_file=~/.ssh/id_rsa
+
+[jump]
+jump-1 ansible_host="{{ jump_host }}"
+
+[internal:vars]
+ansible_ssh_common_args="-o ProxyCommand=\"ssh -W %h:%p {{ ansible_user }}@{{ jump_host }} -i {{ ansible_ssh_private_key_file }}\""
+
+[internal:children]
+consul
+nomad_instances
+
+[nomad_instances:children]
+nomad_servers
+nomad_clients
+
+[consul]
+consul-1
+
+[nomad_servers]
+nomad-server-1
+nomad-server-2
+nomad-server-3
+
+[nomad_clients]
+nomad-client-1
